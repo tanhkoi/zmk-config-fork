@@ -47,7 +47,7 @@
 &kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
 &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
 &kp LSHFT   &kp Z         &trans        &trans        &trans        &trans          &trans    &trans    &trans    &trans     &trans  &trans
-                                        &kp LGUI      &to 0         &kp SPACE       &kp RET   &trans    &kp RALT
+                                        &kp LGUI      &to 0         &kp SPACE       &kp RET   &to 3     &kp RALT
             >;
         };
 
@@ -61,19 +61,19 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp EXCL    &kp AT      &kp HASH    &kp DLLR        &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &bl BL_TOG  &bl BL_INC  &bl BL_DEC  &bl BL_CYCLE    &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &trans      &trans      &trans      &trans          &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                                   &kp LGUI    &studio_unlock  &kp SPACE    &kp RET    &to 0      &kp RALT
+&kp TAB    &kp EXCL    &kp AT      &kp HASH    &kp DLLR      &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
+&kp LCTRL  &bl BL_TOG  &bl BL_INC  &bl BL_DEC  &bl BL_CYCLE  &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
+&kp LSHFT  &trans      &trans      &trans      &trans        &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
+                                   &kp LGUI    &to 4         &kp SPACE    &kp RET    &to 0      &kp RALT
             >;
         };
 
         layer_3 {
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp F     &kp P   &kp G        &kp J      &kp L   &kp U      &kp Y    &kp SEMI  &kp BSPC
-&kp LSHFT  &kp A  &kp R  &kp S     &kp T   &kp D        &kp H      &kp N   &kp E      &kp I    &kp O     &kp APOS
-&kp LCTRL  &kp Z  &kp X  &kp C     &kp V   &kp B        &kp K      &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LGUI  &trans  &kp ENTER    &kp SPACE  &trans  &kp RALT
+&kp TAB    &kp Q  &kp W  &kp F     &kp P   &kp G        &kp J      &kp L  &kp U      &kp Y    &kp SEMI  &kp BSPC
+&kp LSHFT  &kp A  &kp R  &kp S     &kp T   &kp D        &kp H      &kp N  &kp E      &kp I    &kp O     &kp APOS
+&kp LCTRL  &kp Z  &kp X  &kp C     &kp V   &kp B        &kp K      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
+                         &kp LGUI  &trans  &kp ENTER    &kp SPACE  &to 0  &kp RALT
             >;
 
             label = "COL";
@@ -81,10 +81,10 @@
 
         layer_4 {
             bindings = <
-&kp TAB    &kp APOS  &kp COMMA  &kp DOT   &kp P   &kp Y        &kp F      &kp G   &kp C     &kp R  &kp L  &kp BSPC
-&kp LSHFT  &kp A     &kp O      &kp E     &kp U   &kp I        &kp D      &kp H   &kp T     &kp N  &kp S  &kp MINUS
-&kp LCTRL  &kp SEMI  &kp Q      &kp J     &kp K   &kp X        &kp B      &kp M   &kp W     &kp V  &kp Z  &kp ESC
-                                &kp LGUI  &trans  &kp ENTER    &kp SPACE  &trans  &kp RALT
+&kp TAB    &kp APOS  &kp COMMA  &kp DOT   &kp P  &kp Y        &kp F      &kp G   &kp C     &kp R  &kp L  &kp BSPC
+&kp LSHFT  &kp A     &kp O      &kp E     &kp U  &kp I        &kp D      &kp H   &kp T     &kp N  &kp S  &kp MINUS
+&kp LCTRL  &kp SEMI  &kp Q      &kp J     &kp K  &kp X        &kp B      &kp M   &kp W     &kp V  &kp Z  &kp ESC
+                                &kp LGUI  &to 4  &kp ENTER    &kp SPACE  &trans  &kp RALT
             >;
 
             label = "DVO";
