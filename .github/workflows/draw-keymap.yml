@@ -25,20 +25,15 @@ jobs:
       - name: Install keymap-drawer
         run: |
           python -m pip install --upgrade pip
-          pip install "tree-sitter<0.25" keymap-drawer
+          pip install keymap-drawer
 
       - name: Parse keymap
         run: |
-          mkdir -p keymap-drawer
-          keymap -c config/config_keymap-drawer.yaml parse \
-            -z config/corne.keymap \
-            > keymap-drawer/corne.yaml
+          keymap parse -c 2 -z config/corne.keymap >keymap-drawer/corne.yaml
 
       - name: Draw SVG
         run: |
-          keymap -c config/config_keymap-drawer.yaml draw \
-            keymap-drawer/corne.yaml \
-            > keymap-drawer/corne.svg
+          keymap draw keymap-drawer/corne.yaml >keymap-drawer/corne.svg
 
       - name: Commit results
         run: |
