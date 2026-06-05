@@ -1,48 +1,22 @@
-name: Draw Keymap
-
+# Example for using the keymap-drawer ZMK user config workflow
+name: Draw ZMK keymaps
 on:
-  push:
+  workflow_dispatch:  # can be triggered manually
+  push:               # automatically run on changes to following paths
     paths:
-      - 'config/corne.keymap'
-      - 'config/config_keymap-drawer.yaml'
-      - '.github/workflows/draw-keymap.yml'
-  workflow_dispatch:
+      - "config/*.keymap"
+      - "config/*.dtsi"
+      - "keymap_drawer.config.yaml"
+      # - 'boards/*/*/*.keymap'
 
 jobs:
   draw:
-    runs-on: ubuntu-latest
+    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
     permissions:
-      contents: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install keymap-drawer
-        run: |
-          python -m pip install --upgrade pip
-          pip install "tree-sitter<0.25" keymap-drawer
-
-      - name: Parse keymap
-        run: |
-          keymap parse -c 2 -z config/corne.keymap >keymap-drawer/corne.yaml
-
-      - name: Draw SVG
-        run: |
-          keymap draw keymap-drawer/corne.yaml >keymap-drawer/corne.svg
-
-      - name: Commit results
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add keymap-drawer/corne.yaml keymap-drawer/corne.svg
-          if git diff --cached --quiet; then
-            echo "No changes."
-          else
-            git commit -m "ci: redraw corne keymap"
-            git push
-          fi
+      contents: write  # allow workflow to commit to the repo
+    with:
+      keymap_patterns: "config/*.keymap"        # path to the keymaps to parse
+      config_path: "keymap_drawer.config.yaml"  # config file, ignored if not exists
+      output_folder: "keymap-drawer"            # path to save produced SVG and keymap YAML files
+      parse_args: ""  # map of extra args to pass to `keymap parse`, e.g. "corne:'-l Def Lwr Rse' cradio:''"
+      draw_args: ""   # map of extra args to pass to `keymap draw`, e.g. "corne:'-k corne_rotated' cradio:'-k paroxysm'"
