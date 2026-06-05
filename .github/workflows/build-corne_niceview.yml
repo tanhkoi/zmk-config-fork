@@ -1,9 +1,11 @@
 # on: [push, pull_request, workflow_dispatch]
-name: Build ZMK firmware
+name: Build Corne ZMK firmware
 on:
   workflow_dispatch:  # can be triggered manually
   push:               # automatically run on changes to following paths
-    # paths:
+    paths:
+      - "config/corne.config"
+      - "config/corne.keymap"
       # - "config/*.keymap"
       # - "config/*.dtsi"
       # - "keymap_drawer.config.yaml"
@@ -12,3 +14,6 @@ on:
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0
+    with:
+      build_matrix_path: build/corne_niceview.yaml
+      archive_name: corne_niceview
